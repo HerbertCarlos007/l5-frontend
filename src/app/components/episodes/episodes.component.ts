@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { EpisodesService } from '../../services/episodes.service';
+import { Episodes } from '../../interfaces/episodes';
 
 @Component({
   selector: 'app-episodes',
@@ -12,7 +13,7 @@ import { EpisodesService } from '../../services/episodes.service';
 })
 export class EpisodesComponent {
   
-  episodes: any[] = [];
+  episodes: Episodes[] = [];
   
   constructor(private episodeService: EpisodesService) { }
   

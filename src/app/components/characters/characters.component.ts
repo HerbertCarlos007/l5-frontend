@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CharacterService } from '../../services/character.service';
 import { CommonModule } from '@angular/common';
+import { Character } from '../../interfaces/character';
 
 @Component({
   selector: 'app-characters',
@@ -12,7 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class CharactersComponent {
   
-  characters: any[] = [];
+  characters: Character[] = [];
   
   constructor(private characterService: CharacterService) { }
 

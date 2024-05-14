@@ -1,12 +1,12 @@
 <div class="container text-center">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
-    <div *ngFor="let character of characters" class="col card">
-      <div class="card-content">
-        <img src="{{ character.image }}" class="image" />
-        <span class="card-info status">{{ character.status }}</span>
-        <h5 class="card-info">{{ character.name }}</h5>
-        <h5 class="card-info">{{ character.species }}</h5>
-      </div>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+  <div *ngFor="let character of characters" class="col card">
+    <div class="card-content">
+      <img src="{{ character.image }}" class="image" />
+      <span class="card-title status">{{ character.status }}</span>
+      <h5 class="card-title">{{ character.name }}</h5>
+      <h5 class="card-title">{{ character.species }}</h5>
     </div>
   </div>
+</div>
 </div>
