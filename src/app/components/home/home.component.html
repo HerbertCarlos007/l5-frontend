@@ -1,8 +1,8 @@
 <div class="main">
   <app-header></app-header>
   <div class="content">
-    <app-characters></app-characters>
-    <!-- <app-episodes></app-episodes>  -->
+    <app-characters *ngIf="showCharacters"></app-characters>
+    <app-episodes *ngIf="!showCharacters"></app-episodes>
   </div>
-  <app-sidebar></app-sidebar>
+  <app-sidebar (itemClicked)="onItemClicked($event)"></app-sidebar>
 </div>
