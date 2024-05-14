@@ -12,10 +12,8 @@ import { CommonModule } from '@angular/common';
 })
 export class CharactersComponent {
   
-  
   characters: any[] = [];
   
-
   constructor(private characterService: CharacterService) { }
 
   ngOnInit(): void {

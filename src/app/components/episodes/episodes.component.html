@@ -1,0 +1,13 @@
+<div class="container text-center">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+      <div *ngFor="let episode of episodes" class="col card">
+        <div class="card-content">
+          <img class="image" src="assets/episodes.jpg"/>
+          <h5 class="card-info">{{ episode.name }}</h5>
+          <h5 class="card-info">{{ episode.episode }}</h5>
+          <h5 class="card-info"></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  
