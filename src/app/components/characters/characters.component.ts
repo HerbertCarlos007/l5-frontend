@@ -14,7 +14,7 @@ import { Character } from '../../interfaces/character';
 export class CharactersComponent {
   
   characters: Character[] = [];
-  
+    
   constructor(private characterService: CharacterService) { }
 
   ngOnInit(): void {
@@ -22,5 +22,18 @@ export class CharactersComponent {
       this.characters = characters;
       console.log(this.characters)
     });
+  }
+  
+  getStatusColor(status: string): string {
+    switch (status.toLowerCase()) {
+      case 'alive':
+        return 'alive';
+      case 'dead':
+        return 'dead';
+      case 'unknown':
+        return 'unknown';
+      default:
+        return ''
+    }
   }
 }
