@@ -22,5 +22,15 @@
     width: 10px;
     justify-content: center;
     position: relative;
-    left: 30%
+    left: 30%;
+    gap: 20px
+}
+
+input, select {
+    border-radius: 8px;
+    padding: 10px;  
+}
+
+::-webkit-input-placeholder {
+   color: black;
 }

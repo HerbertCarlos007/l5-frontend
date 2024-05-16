@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -10,12 +10,19 @@ import { FormsModule } from '@angular/forms';
 })
 export class HeaderComponent {
   searchTerm: string = ''
+  status: string = ''
   @Output() searchTermChange = new EventEmitter<string>()
+  @Output() statusTermChange = new EventEmitter<string>()
 
   search(e: Event): void {
     const target = e.target as HTMLInputElement
     this.searchTerm = target.value;
-    console.log(this.searchTerm)
     this.searchTermChange.emit(this.searchTerm)
+  }
+  
+  filterByStatus(e:Event) {
+    const target = e.target as HTMLInputElement
+    this.status = target.value;
+    this.statusTermChange.emit(this.status)
   }
 }

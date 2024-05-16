@@ -1,7 +1,7 @@
 <div class="main">
-  <app-header (searchTermChange)="searchTerm = $event"></app-header>
+  <app-header (searchTermChange)="searchTerm = $event" (statusTermChange)="status = $event"></app-header>
   <div class="content">
-    <app-characters *ngIf="showCharacters" [searchTerm]="searchTerm"></app-characters>
+    <app-characters *ngIf="showCharacters" [searchTerm]="searchTerm" [status]="status"></app-characters>
     <app-episodes *ngIf="!showCharacters" [searchTerm]="searchTerm"></app-episodes>
   </div>
   <app-sidebar (itemClicked)="onItemClicked($event)"></app-sidebar>

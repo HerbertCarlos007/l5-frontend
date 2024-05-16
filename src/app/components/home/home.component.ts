@@ -14,8 +14,9 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  searchTerm: string = '';
   
+  searchTerm: string = '';
+  status: string = ''
   showCharacters = true;
   onItemClicked(item: string) {
     this.showCharacters = item === 'characters';

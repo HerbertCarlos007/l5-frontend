@@ -3,7 +3,12 @@
     <h1 class="title">Rick and Morty</h1>
     <div class="container-search">
       <input type="text" placeholder="Buscar" (input)="search($event)" />
-      <button type="submit">Search</button>
+      <select (change)="filterByStatus($event)">
+        <option value="">Filtrar por status</option>
+        <option value="alive">Alive</option>
+        <option value="dead">Dead</option>
+        <option value="unknown">Unknown</option>
+      </select>
     </div>
   </div>
 </header>

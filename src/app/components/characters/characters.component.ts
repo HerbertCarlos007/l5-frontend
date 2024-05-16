@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CharacterService } from '../../services/character.service';
 import { CommonModule } from '@angular/common';
 import { Character } from '../../interfaces/character';
@@ -13,9 +13,10 @@ import { Character } from '../../interfaces/character';
 })
 export class CharactersComponent {
   @Input() searchTerm: string = '';
+  @Input() status: string = '';
   characters: Character[] = [];
 
-  constructor(private characterService: CharacterService) {}
+  constructor(private characterService: CharacterService) { }
 
   ngOnInit(): void {
     this.characterService.getCharacters().subscribe((characters) => {
@@ -24,15 +25,26 @@ export class CharactersComponent {
   }
 
   ngOnChanges(): void {
-    if (this.searchTerm) {
-      this.characters = this.characters.filter((character) =>
-        character.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-      );
-    } else {
-      this.characterService.getCharacters().subscribe((characters) => {
-        this.characters = characters;
-      });
-    }
+    this.filterCharacters();
+  }
+
+  filterCharacters(): void {
+    this.characterService.getCharacters().subscribe((characters) => {
+      let filteredCharacters = characters;
+
+      if (this.searchTerm) {
+        filteredCharacters = filteredCharacters.filter((character) =>
+          character.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+        );
+      }
+
+      if (this.status) {
+        filteredCharacters = filteredCharacters.filter((character) =>
+          character.status.toLowerCase().includes(this.status.toLowerCase())
+        );
+      }
+      this.characters = filteredCharacters;
+    });
   }
 
   getStatusColor(status: string): string {
