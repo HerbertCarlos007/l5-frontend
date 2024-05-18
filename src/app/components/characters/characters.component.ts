@@ -46,8 +46,6 @@ export class CharactersComponent {
         );
       }
       
-      console.log('filtrando por specie', this.species)
-      
       if (this.species) {
         filteredCharacters = filteredCharacters.filter((character) =>
           character.species.toLowerCase().includes(this.species.toLowerCase())

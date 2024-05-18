@@ -36,3 +36,8 @@ body {
     padding: 20px;
     overflow-y: auto;
 }
+
+.logout {
+    position: relative;
+    top: 70%;
+}
