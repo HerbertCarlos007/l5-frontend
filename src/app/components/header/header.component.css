@@ -1,5 +1,5 @@
 .header {
-    width: 100%;
+    width: 100vw;
     background-color:  #16171a;
     height: 70px;
     display: flex;
@@ -26,9 +26,17 @@
     gap: 20px
 }
 
+@media (max-width: 1366px) {
+    .container-search {
+        left: 22%;
+    }
+    
+    input, 
+}
+
 input, select {
     border-radius: 8px;
-    padding: 10px;  
+    padding: 5px;  
 }
 
 ::-webkit-input-placeholder {
