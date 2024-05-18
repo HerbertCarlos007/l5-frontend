@@ -2,11 +2,12 @@ import { Component, Input } from '@angular/core';
 import { CharacterService } from '../../services/character.service';
 import { CommonModule } from '@angular/common';
 import { Character } from '../../interfaces/character';
+import { Router, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-characters',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterOutlet],
   providers: [CharacterService],
   templateUrl: './characters.component.html',
   styleUrls: ['./characters.component.css'],
@@ -16,7 +17,7 @@ export class CharactersComponent {
   @Input() status: string = '';
   characters: Character[] = [];
 
-  constructor(private characterService: CharacterService) { }
+  constructor(private characterService: CharacterService, private router: Router) { }
 
   ngOnInit(): void {
     this.characterService.getCharacters().subscribe((characters) => {
@@ -45,6 +46,11 @@ export class CharactersComponent {
       }
       this.characters = filteredCharacters;
     });
+  }
+  
+  goToDetail(id: string): void {
+    console.log('testeeeee')
+    this.router.navigate(['character', id]);
   }
 
   getStatusColor(status: string): string {

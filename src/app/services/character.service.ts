@@ -18,4 +18,8 @@ export class CharacterService {
       map((response: any) => response.results)
     );
   }
+  
+   getCharacterById(id: string): Observable<Character> {
+    return this.http.get<Character>(`${this.apiUrl}/${id}`);
+  }
 }

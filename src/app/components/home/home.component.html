@@ -5,4 +5,6 @@
     <app-episodes *ngIf="!showCharacters" [searchTerm]="searchTerm"></app-episodes>
   </div>
   <app-sidebar (itemClicked)="onItemClicked($event)"></app-sidebar>
+  
+  <app-character-detail></app-character-detail>
 </div>

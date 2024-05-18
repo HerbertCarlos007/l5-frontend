@@ -1,7 +1,13 @@
+interface Location {
+    name: string
+}
+
 export interface Character {
-    id?: number,
+    id: string,
     name: string,
     status: string,
     image: string,
-    species: string
+    species: string,
+    gender: string,
+    location: Location
 }

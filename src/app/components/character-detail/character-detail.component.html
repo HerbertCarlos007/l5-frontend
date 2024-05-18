@@ -1,0 +1,15 @@
+<div class="container-detail" *ngIf="character">
+    <div class="content">
+        <div class="left-section">
+            <img [src]="character?.image" class="image">
+        </div>
+        <div class="right-section">
+            <div>
+                <span>Espécie: {{character?.name}}</span>
+                <span>Especie: {{character?.species}}</span>
+                <span>Gênero: {{character?.gender}}</span>
+                <span>Localização: {{character?.location?.name}}</span>
+            </div>
+        </div>
+    </div>
+</div>
