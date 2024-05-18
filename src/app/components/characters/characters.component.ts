@@ -15,6 +15,7 @@ import { Router, RouterOutlet } from '@angular/router';
 export class CharactersComponent {
   @Input() searchTerm: string = '';
   @Input() status: string = '';
+  @Input() species: string = '';
   characters: Character[] = [];
 
   constructor(private characterService: CharacterService, private router: Router) { }
@@ -44,6 +45,16 @@ export class CharactersComponent {
           character.status.toLowerCase().includes(this.status.toLowerCase())
         );
       }
+      
+      console.log('filtrando por specie', this.species)
+      
+      if (this.species) {
+        filteredCharacters = filteredCharacters.filter((character) =>
+          character.species.toLowerCase().includes(this.species.toLowerCase())
+        );
+      }
+      
+      
       this.characters = filteredCharacters;
     });
   }

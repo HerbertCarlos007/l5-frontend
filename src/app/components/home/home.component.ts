@@ -19,6 +19,7 @@ export class HomeComponent {
   searchTerm: string = '';
   status: string = ''
   showCharacters = true;
+  species: string = ''
   onItemClicked(item: string) {
     this.showCharacters = item === 'characters';
   }
