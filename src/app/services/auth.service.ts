@@ -9,7 +9,7 @@ export class AuthService {
   constructor(private router: Router) {}
 
   login(username: string, password: string): boolean {
-    if (username === 'l5teste' && password === '12345') {
+    if (username === 'herbert' && password === '12345') {
       this.username = username;
       localStorage.setItem('user', username);
       this.router.navigate(['/home']);

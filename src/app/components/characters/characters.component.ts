@@ -58,7 +58,6 @@ export class CharactersComponent {
   }
   
   goToDetail(id: string): void {
-    console.log('testeeeee')
     this.router.navigate(['character', id]);
   }
 

@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,9 +11,9 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
   
-  showCharacters = true; // Exibir characters por padrão
+  showCharacters = true
 
   @Output() itemClicked = new EventEmitter<string>();
 
@@ -24,4 +25,7 @@ export class SidebarComponent {
     this.authService.logout()
   }
   
+  goToProfile() {
+    this.router.navigate(['profile']);
+  }
 }
