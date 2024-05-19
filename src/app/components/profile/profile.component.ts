@@ -17,4 +17,8 @@ export class ProfileComponent {
     const data = this.authService.getUsername()
     this.username = data
   }
+  
+  logout() {
+    this.authService.logout()
+  }
 }

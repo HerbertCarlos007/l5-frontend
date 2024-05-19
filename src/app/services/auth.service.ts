@@ -27,8 +27,4 @@ export class AuthService {
   getUsername(): string | null {
     return this.username;
   }
-
-  isAuthenticated(): boolean {
-    return this.username !== null;
-  }
 }
