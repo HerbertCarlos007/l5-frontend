@@ -1,3 +1,5 @@
+import { Info } from "./info"
+
 interface Location {
     name: string
 }
@@ -10,4 +12,6 @@ export interface Character {
     species: string,
     gender: string,
     location: Location
+    
+    info: Info
 }

@@ -17,21 +17,27 @@ export class CharactersComponent {
   @Input() status: string = '';
   @Input() species: string = '';
   characters: Character[] = [];
+  currentPage: number = 1;
+  totalPages: number = 42;
 
   constructor(private characterService: CharacterService, private router: Router) { }
 
   ngOnInit(): void {
-    this.characterService.getCharacters().subscribe((characters) => {
-      this.characters = characters;
-    });
+    this.loadCharacters();
   }
 
   ngOnChanges(): void {
     this.filterCharacters();
   }
 
+  loadCharacters(page: number = 1): void {
+    this.characterService.getCharacters(page).subscribe((characters) => {
+      this.characters = characters;
+    });
+  }
+
   filterCharacters(): void {
-    this.characterService.getCharacters().subscribe((characters) => {
+    this.characterService.getCharacters(this.currentPage).subscribe((characters) => {
       let filteredCharacters = characters;
 
       if (this.searchTerm) {
@@ -45,18 +51,16 @@ export class CharactersComponent {
           character.status.toLowerCase().includes(this.status.toLowerCase())
         );
       }
-      
+
       if (this.species) {
         filteredCharacters = filteredCharacters.filter((character) =>
           character.species.toLowerCase().includes(this.species.toLowerCase())
         );
       }
-      
-      
       this.characters = filteredCharacters;
     });
   }
-  
+
   goToDetail(id: string): void {
     this.router.navigate(['character', id]);
   }
@@ -71,6 +75,20 @@ export class CharactersComponent {
         return 'unknown';
       default:
         return '';
+    }
+  }
+
+  nextPage(): void {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.loadCharacters(this.currentPage);
+    }
+  }
+
+  previousPage(): void {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.loadCharacters(this.currentPage);
     }
   }
 }
