@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core'
+import { AuthService } from '../../services/auth.service'
+import { FormsModule } from '@angular/forms'
+import { CommonModule } from '@angular/common'
 
 @Component({
   selector: 'app-login',
@@ -11,15 +11,15 @@ import { CommonModule } from '@angular/common';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  username = '';
-  password = '';
-  errorMessage = '';
+  username = ''
+  password = ''
+  errorMessage = ''
 
   constructor(private authService: AuthService) {}
 
   login() {
     if (!this.authService.login(this.username, this.password)) {
-      this.errorMessage = 'Credenciais inválidas';
+      this.errorMessage = 'Credenciais inválidas'
     }
   }
 }

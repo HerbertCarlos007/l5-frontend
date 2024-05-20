@@ -1,7 +1,7 @@
-import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Output } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common'
+import { Component, EventEmitter, Output } from '@angular/core'
+import { AuthService } from '../../services/auth.service'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-sidebar',
@@ -15,10 +15,10 @@ export class SidebarComponent {
   
   showCharacters = true
 
-  @Output() itemClicked = new EventEmitter<string>();
+  @Output() itemClicked = new EventEmitter<string>()
 
   onItemClick(item: string) {
-    this.itemClicked.emit(item);
+    this.itemClicked.emit(item)
   }
   
   logout() {
@@ -26,6 +26,6 @@ export class SidebarComponent {
   }
   
   goToProfile() {
-    this.router.navigate(['profile']);
+    this.router.navigate(['profile'])
   }
 }

@@ -1,8 +1,4 @@
-import { Info } from "./info"
-
-interface Location {
-    name: string
-}
+import { Location } from "./location"
 
 export interface Character {
     id: string,
@@ -12,6 +8,4 @@ export interface Character {
     species: string,
     gender: string,
     location: Location
-    
-    info: Info
 }

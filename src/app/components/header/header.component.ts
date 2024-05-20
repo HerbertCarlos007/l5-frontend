@@ -1,5 +1,5 @@
-import { Component, Output, EventEmitter } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, Output, EventEmitter } from '@angular/core'
+import { FormsModule } from '@angular/forms'
 
 @Component({
   selector: 'app-header',
@@ -18,19 +18,19 @@ export class HeaderComponent {
 
   search(e: Event): void {
     const target = e.target as HTMLInputElement
-    this.searchTerm = target.value;
+    this.searchTerm = target.value
     this.searchTermChange.emit(this.searchTerm)
   }
   
   filterByStatus(e:Event) {
     const target = e.target as HTMLInputElement
-    this.status = target.value;
+    this.status = target.value
     this.statusTermChange.emit(this.status)
   }
   
   filterBySpecie(e:Event) {
     const target = e.target as HTMLInputElement
-    this.species = target.value;
+    this.species = target.value
     this.specieTermChange.emit(this.species)
     console.log(this.species)
   }

@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { CharacterService } from '../../services/character.service';
-import { Character } from '../../interfaces/character';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core'
+import { ActivatedRoute } from '@angular/router'
+import { CharacterService } from '../../services/character.service'
+import { Character } from '../../interfaces/character'
+import { CommonModule } from '@angular/common'
 
 @Component({
   selector: 'app-character-detail',
@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './character-detail.component.css'
 })
 export class CharacterDetailComponent {
-  character: Character | null = null;
+  character: Character | null = null
   
   constructor(
     private route: ActivatedRoute,
@@ -20,13 +20,11 @@ export class CharacterDetailComponent {
   ) { }
   
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('id')
     if (id) {
       this.characterService.getCharacterById(id).subscribe((character) => {
-        this.character = character;
-      });
+        this.character = character
+      })
     }
-    
-    console.log()
   }
 }
